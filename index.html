@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:400,900italic,900,700italic,700,500italic,500,400italic,300italic,300,100italic,100"
+    />
+  </head>
+  <body>
+    <div class="loading-page">
+      <div class="counter">
+        <p>Sending</p>
+        <br />
+        <h1>h1.abs loading h1.abs.color loading</h1>
+        <hr />
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        padding: 0;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        display: flex;
+        font-family: Roboto;
+      }
+
+      .loading-page {
+        background: #ffffff;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .loading-page .counter {
+        text-align: center;
+        position: relative;
+        width: 200px;
+      }
+
+      .loading-page .counter p {
+        font-size: 40px;
+        font-weight: 100;
+        color: #3eab52;
+      }
+
+      .loading-page .counter h1 {
+        /* margin-top: 10px; */
+        color: #3eab52;
+        font-size: 60px;
+        margin-top: 50px;
+        position: absolute;
+        top: 0;
+        width: 100%;
+      }
+
+      .loading-page .counter hr {
+        background: #3eab52;
+        border: none;
+        height: 1px;
+        margin-top: 60px;
+      }
+
+      .loading-page .counter h1.abs {
+        position: absolute;
+        top: 0;
+        width: 100%;
+      }
+
+      /* .loading-page .counter .color {
+        width: 0px;
+        overflow: hidden;
+        color: #f60d54;
+      } */
+    </style>
+
+    <script>
+      $(document).ready(function () {
+        var counter = 0;
+        var c = 0;
+        var i = setInterval(function () {
+          $(".loading-page .counter h1").html(c + "%");
+          $(".loading-page .counter hr").css("width", c + "%");
+
+          counter++;
+          c++;
+
+          if (counter == 101) {
+            clearInterval(i);
+          }
+        }, 50);
+      });
+    </script>
+  </body>
+</html>
